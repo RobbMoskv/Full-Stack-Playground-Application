@@ -1,5 +1,6 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
+const schema = require('./schema/schema');
 
 const PORT = 4000;
 const app = express();
@@ -7,7 +8,7 @@ const app = express();
 // Use graphql server as middleware
 app.use('/graphql', graphqlHTTP({
   // Option object
-
+  schema
 }));
 
 app.listen(PORT, () => {
@@ -16,5 +17,5 @@ app.listen(PORT, () => {
 
 // Create a single endpoint as route
 
-// https://youtu.be/ed8SzALpx1Q?t=1481
+// https://www.youtube.com/watch?v=ALqNbTik44o&list=PL4cUxeGkcC9iK6Qhn-QLcXCXPQUov1U7f
 
