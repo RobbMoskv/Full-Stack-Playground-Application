@@ -8,7 +8,7 @@ const app = express();
 // Use graphql server as middleware
 app.use('/graphql', graphqlHTTP({
   // Option object
-  schema,
+  schema: schema,
   graphiql: true
 }));
 

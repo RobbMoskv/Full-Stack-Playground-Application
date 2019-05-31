@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const books = require('./datastore');
+const books = require('../data/datastore');
 // Destructioring function
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
 
@@ -9,13 +9,13 @@ const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
 // - Define root queries how to reach into the graph to interact with the data
 
 // Book object type on the graph
-const BookType = GraphQLObjectType({
+const BookType = new GraphQLObjectType({
     name: 'Book',
     fields: () => ({
         id: { type: GraphQLString },
         name: { type: GraphQLString },
-        genre: { type: GraphQLObjectType }
-    })
+        genre: { type: GraphQLString }
+    }),
 });
 
 // How to reach into the graph to interact with the data

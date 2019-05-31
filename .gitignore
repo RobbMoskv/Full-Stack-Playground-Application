@@ -1,2 +1,6 @@
 node_modules
 Dockerfile
+
+# Exclude parts of spec
+spec/helpers
+spec/jasmine_examples
