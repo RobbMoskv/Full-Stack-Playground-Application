@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const { books, authors } = require('../data/datastore');
 // Destructioring function
-const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
 
 // Schema describes the data on this kind of graph:
 // - Define object types
@@ -14,7 +14,13 @@ const BookType = new GraphQLObjectType({
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
-        genre: { type: GraphQLString }
+        genre: { type: GraphQLString },
+        author: {
+            type: AuthorType,
+            resolve(parent, args) {
+                return authors.find(author => author.id === parent.authorId);
+            }
+        }
     }),
 });
 
@@ -24,7 +30,13 @@ const AuthorType = new GraphQLObjectType({
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
-        age: { type: GraphQLInt }
+        age: { type: GraphQLInt },
+        books: {
+            type: new GraphQLList(BookType),
+            resolve(parent, args) {
+                return books.filter(books => books.authorId === parent.id);
+            }
+        }
     }),
 });
 
@@ -37,7 +49,14 @@ const RootQuery = new GraphQLObjectType({
             args: { id: { type: GraphQLID } },
             resolve(parent, args) {
                 // code to get data from db / othe source
-                return books.find(book => book.id == args.id);
+                return books.find(book => book.id === args.id);
+            }
+        },
+        author: {
+            type: AuthorType,
+            args: { id: { type: GraphQLID } },
+            resolve(parent, args) {
+                return authors.find(author => author.id === args.id);
             }
         }
     }
