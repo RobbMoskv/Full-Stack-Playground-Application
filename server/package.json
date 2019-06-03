@@ -4,7 +4,8 @@
   "description": "A graphql server based on express.js",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --legacy-watch app.js"
+    "start": "nodemon app.js --legacy-watch ",
+    "test": " jasmine-node spec/ --verbose --color"
   },
   "author": "Fabrizio Zihlmann",
   "license": "MIT",
@@ -14,7 +15,6 @@
     "graphql": "^14.3.1"
   },
   "devDependencies": {
-    "jasmine": "^3.4.0",
     "nodemon": "^1.19.1"
   }
 }
