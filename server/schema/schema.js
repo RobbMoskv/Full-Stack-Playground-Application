@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { books, authors } = require('../database/datastore');
+const { Book, Author } = require('../database/models');
 // Destructioring function
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
 
@@ -18,7 +18,7 @@ const BookType = new GraphQLObjectType({
         author: {
             type: AuthorType,
             resolve(parent, args) {
-                return authors.find(author => author.id === parent.authorId);
+                //return authors.find(author => author.id === parent.authorId);
             }
         }
     }),
@@ -34,7 +34,7 @@ const AuthorType = new GraphQLObjectType({
         books: {
             type: new GraphQLList(BookType),
             resolve(parent, args) {
-                return books.filter(books => books.authorId === parent.id);
+                //return books.filter(books => books.authorId === parent.id);
             }
         }
     }),
@@ -49,26 +49,26 @@ const RootQuery = new GraphQLObjectType({
             args: { id: { type: GraphQLID } },
             resolve(parent, args) {
                 // code to get data from db / othe source
-                return books.find(book => book.id === args.id);
+                //return books.find(book => book.id === args.id);
             }
         },
         books: {
             type: new GraphQLList(BookType),
             resolve(parent, args) {
-                return books;
+                //return books;
             }
         },
         author: {
             type: AuthorType,
             args: { id: { type: GraphQLID } },
             resolve(parent, args) {
-                return authors.find(author => author.id === args.id);
+                //return authors.find(author => author.id === args.id);
             }
         },
         authors: {
             type: new GraphQLList(AuthorType),
             resolve(parent, args) {
-                return authors;
+                //return authors;
             }
         }
     }
