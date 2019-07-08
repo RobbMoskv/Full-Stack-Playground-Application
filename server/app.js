@@ -1,9 +1,16 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
+const mongoose = require('mongoose');
 
 const PORT = 4000;
 const app = express();
+
+// Connect to AWS DynamoDB
+mongoose.connect('mongodb://localhost:27017/graphqlplaylistDB');
+mongoose.connection.once('open', () => {
+  console.log('Database connection successful.');
+});
 
 // Use graphql server as middleware
 app.use('/graphql', graphqlHTTP({

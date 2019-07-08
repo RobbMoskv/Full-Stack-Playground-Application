@@ -1,15 +1,15 @@
-const books = require('../data/datastore');
+const { books } = require('../data/datastore');
 
 describe('The datastore', () => {
 
     it('should contain three book objects.', () => {
         // Assert
-        expect(books.length).toBe(3);
+        expect(books.length).toBe(6);
     });
 
     it('should return the correct requested object.', () => {
         // Arrange
-        const testBook = { name: 'Name of the Wind', genre: 'Fantasy', id: '1' };
+        const testBook = { name: 'Name of the Wind', genre: 'Fantasy', id: '1', authorId: '1' };
         // Act
         const actual = books.find(book => book.id == testBook.id);
         // Assert
@@ -19,7 +19,7 @@ describe('The datastore', () => {
 
     it('should contain the correct expected content.', () => {
         // Arrange
-        const testBook = { name: 'Name of the Wind', genre: 'Fantasy', id: '1' };
+        const testBook = { name: 'Name of the Wind', genre: 'Fantasy', id: '1', authorId: '1' };
         // Act
         const actual = books.find(book => book.id == 1);
         // Assert

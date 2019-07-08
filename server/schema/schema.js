@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { books, authors } = require('../data/datastore');
+const { books, authors } = require('../database/datastore');
 // Destructioring function
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
 
