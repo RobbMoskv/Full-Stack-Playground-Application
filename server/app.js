@@ -7,7 +7,7 @@ const PORT = 4000;
 const app = express();
 
 // Connect to AWS DynamoDB
-mongoose.connect('mongodb://localhost:27017/graphqlplaylistDB');
+mongoose.connect('mongodb://localhost:27017/graphqlplaylistDB', { useNewUrlParser: true });
 mongoose.connection.once('open', () => {
   console.log('Database connection successful.');
 });
