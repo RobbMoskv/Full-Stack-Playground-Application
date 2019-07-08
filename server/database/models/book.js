@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema({
     name: String,
     genre: String,
-    author: String,
+    authorid: String,
 });
 
 // Model mapper
