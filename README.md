@@ -14,7 +14,8 @@
 
 Choose the latest mongo image from Docker Hub, map the ports and run a container.
 
-```
+```bash
+# Run docker container
 $ sudo docker run -p 27017:27017 --name graphqlplaylistDB -d mongo
 
 # To verify whether everything worked as expected, access the bash
@@ -37,6 +38,12 @@ The database layer contains the **Object-Document-Mapping**. For each MongoDB co
 
 A **single GraphQL endpoint** provides the one and only interaction point to the application by allowing
 **data consumption** as well as **defined mutations** possibilities.
+
+How to add objects to a MongoDB collection?
+
+```
+
+```
 
 #### App Layer
 
