@@ -41,8 +41,13 @@ A **single GraphQL endpoint** provides the one and only interaction point to the
 
 How to add objects to a MongoDB collection?
 
-```
-
+```js
+mutation{
+  addAuthor(name: "Peter Markle", age: 61){
+    id
+    name
+  }
+}
 ```
 
 #### App Layer
