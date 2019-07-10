@@ -2,5 +2,5 @@
 const Book = require('./book');
 const Author = require('./author');
 
-// Export
-module.exports = { Book, Author};
+// Export Models
+module.exports = { Book, Author };

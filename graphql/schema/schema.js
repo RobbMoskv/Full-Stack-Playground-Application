@@ -1,7 +1,8 @@
-const graphql = require('graphql');
-const { Book, Author } = require('../database/models');
+const { Book, Author } = require('../../database/models/');
+
 // Destructioring function
-const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
+const graphql = require('graphql');
+const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLString, GraphQLInt ,GraphQLList } = graphql;
 
 // Schema describes the data on this kind of graph:
 // - Define object types
@@ -25,7 +26,7 @@ const BookType = new GraphQLObjectType({
     }),
 });
 
-// Book object type on the graph
+// // Book object type on the graph
 const AuthorType = new GraphQLObjectType({
     name: 'Author',
     fields: () => ({
