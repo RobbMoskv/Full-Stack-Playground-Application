@@ -1,18 +1,13 @@
 // Import
 const mongoose = require('mongoose');
-const dbstring = `mongodb://localhost:${process.env.PORT}/${process.env.DB}`;
+const dbstring = `mongodb://localhost:${process.env.DBPORT}/${process.env.DB}`;
 
 // Connect to database
 const initialDbConnection = () => {
   
-  if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-  }
-
   mongoose.connect(dbstring, { useNewUrlParser: true });
   mongoose.connection.once('open', () => {
     console.log('Database connection successful.');
-    console.log(dbstring);
   });
 };
 
