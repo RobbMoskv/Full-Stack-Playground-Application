@@ -1,17 +1,13 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
-const DbConnector = require('../database');
+const DbConnector = require('./dbcontext/');
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const app = express();
 
 // Connect to database
 DbConnector.initialDbConnection();
-// mongoose.connect('mongodb://localhost:27017/graphqlplaylistDB', { useNewUrlParser: true });
-// mongoose.connection.once('open', () => {
-//   console.log('Database connection successful.');
-// });
 
 // Use graphql server as middleware
 app.use('/graphql', graphqlHTTP({

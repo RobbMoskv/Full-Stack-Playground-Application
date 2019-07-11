@@ -1,8 +1,8 @@
-const { Book, Author } = require('../../database/models/');
+const { Book, Author } = require('../dbcontext/models');
 
 // Destructioring function
 const graphql = require('graphql');
-const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLString, GraphQLInt ,GraphQLList } = graphql;
+const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLString, GraphQLInt ,GraphQLList, GraphQLNonNull } = graphql;
 
 // Schema describes the data on this kind of graph:
 // - Define object types
@@ -87,8 +87,8 @@ const Mutation = new GraphQLObjectType({
         addAuthor:{
             type: AuthorType,
             args: {
-                name: {type: GraphQLString},
-                age: { type: GraphQLInt },
+                name: {type: new GraphQLNonNull(GraphQLString)},
+                age: { type: new GraphQLNonNull(GraphQLInt) },
             },
             resolve(parent, args) {
                 // let author = new Author({
@@ -103,9 +103,9 @@ const Mutation = new GraphQLObjectType({
         addBook: {
             type: BookType,
             args: {
-                name: { type: GraphQLString },
-                genre: { type: GraphQLString },
-                authorid: { type: GraphQLID }
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                genre: { type: new GraphQLNonNull(GraphQLString) },
+                authorid: { type: new GraphQLNonNull(GraphQLID) }
             },
             resolve(parent, args){
                 return Book(args).save();

@@ -4,3 +4,4 @@ graphql/node_modules
 
 # database folder
 database/node_modules
+database/.env
