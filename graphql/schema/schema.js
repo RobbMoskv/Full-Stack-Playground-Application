@@ -2,7 +2,7 @@ const { Book, Author } = require('../dbcontext/models');
 
 // Destructioring function
 const graphql = require('graphql');
-const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLString, GraphQLInt ,GraphQLList, GraphQLNonNull } = graphql;
+const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull } = graphql;
 
 // Schema describes the data on this kind of graph:
 // - Define object types
@@ -37,7 +37,7 @@ const AuthorType = new GraphQLObjectType({
             type: new GraphQLList(BookType),
             resolve(parent, args) {
                 //return books.filter(books => books.authorId === parent.id);
-                return Book.find({authorid: parent.id});
+                return Book.find({ authorid: parent.id });
             }
         }
     }),
@@ -83,19 +83,14 @@ const RootQuery = new GraphQLObjectType({
 
 const Mutation = new GraphQLObjectType({
     name: 'Mutation',
-    fields:{
-        addAuthor:{
+    fields: {
+        addAuthor: {
             type: AuthorType,
             args: {
-                name: {type: new GraphQLNonNull(GraphQLString)},
+                name: { type: new GraphQLNonNull(GraphQLString) },
                 age: { type: new GraphQLNonNull(GraphQLInt) },
             },
             resolve(parent, args) {
-                // let author = new Author({
-                //     name: args.name,
-                //     age: args.age,
-                // });
-                // return author.save();
                 return Author(args).save();
             }
 
@@ -107,7 +102,7 @@ const Mutation = new GraphQLObjectType({
                 genre: { type: new GraphQLNonNull(GraphQLString) },
                 authorid: { type: new GraphQLNonNull(GraphQLID) }
             },
-            resolve(parent, args){
+            resolve(parent, args) {
                 return Book(args).save();
             }
         }
