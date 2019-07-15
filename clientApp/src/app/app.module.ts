@@ -11,9 +11,11 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 // Components
 import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AuthorListComponent } from './components/author-list/author-list.component';
 
 @NgModule({
-  declarations: [AppComponent, BookListComponent],
+  declarations: [AppComponent, BookListComponent, NavBarComponent, AuthorListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
