@@ -1,0 +1,25 @@
+<h4>List of Authors</h4>
+
+<div *ngIf="loading">
+  Loading...
+</div>
+<div *ngIf="error">
+  Error :(
+</div>
+
+<div *ngIf="authors">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <td>{{ author.name }}</td>
+        <td>{{ author.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
