@@ -1,4 +1,4 @@
-<h4>Book list</h4>
+<h4>List of Books</h4>
 
 <div *ngIf="loading">
   Loading...
@@ -6,8 +6,20 @@
 <div *ngIf="error">
   Error :(
 </div>
-<!-- <div *ngIf="authors"> -->
-<div *ngFor="let author of authors">
-  <p>{{ author.name }}</p>
+
+<div *ngIf="books">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <td>{{ author.name }}</td>
+        <td>{{ author.age }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<!-- </div> -->

@@ -8,6 +8,7 @@ const AllBooks = gql`
   query {
     authors {
       name
+      age
     }
   }
 `;
@@ -19,7 +20,7 @@ const AllBooks = gql`
 })
 export class BookListComponent implements OnInit, OnDestroy {
   loading: boolean;
-  authors: any;
+  books: any[];
 
   private querySubscription: Subscription;
 
@@ -31,8 +32,9 @@ export class BookListComponent implements OnInit, OnDestroy {
         query: AllBooks
       })
       .valueChanges.subscribe(({ data, loading }) => {
+        // tslint:disable-next-line:no-debugger
         this.loading = loading;
-        this.authors = data.authors;
+        this.books = data.books;
       });
   }
 
