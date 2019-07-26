@@ -8,7 +8,7 @@ During development phase and out of interest I use a MongoDB Docker image. Don't
 
 ![Diagram](./Diagram.jpg?raw=true 'Diagram')
 
-The use case itself is kept simple for the time being. A frontend application allows you to request certain kind of books and their corresponding authors via a graphical UI. The purpose of this little side-project was more of a technical & innovative nature instead of build a strong use case. That may changes in the near future.
+The use case itself is kept simple for the time being. A frontend application allows you to request certain kind of books and their corresponding authors via a graphical UI. The purpose of this little side-project was more of technical and innovative nature instead of coming up with a strong use case. That may changes in the near future.
 
 ### Prerequesits
 
