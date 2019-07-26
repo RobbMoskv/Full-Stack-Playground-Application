@@ -1,5 +1,7 @@
 # GraphQL API on MongoDB :boom:
 
+![Diagram](./Diagram.jpg?raw=true 'Diagram')
+
 ### Prerequesits
 
 #### Node.js
