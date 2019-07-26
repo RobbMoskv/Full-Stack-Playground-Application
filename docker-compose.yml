@@ -1,0 +1,17 @@
+version: '3'
+services:
+  # Database container
+  database:
+    build: ./database
+    image: mongo
+    ports:
+      - '27017:27017'
+    container_name: mongdb
+  # Backend container
+  graphql:
+    build: ./graphql
+    image: robbmoskv/graphqlserver
+    ports:
+      - '8080:4000'
+    container_name: graphqlserver
+  # Frontend container
