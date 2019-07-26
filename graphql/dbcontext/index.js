@@ -1,10 +1,11 @@
 // Import
 const mongoose = require('mongoose');
-const dbstring = `mongodb://localhost:${process.env.DBPORT}/${process.env.DB}`;
+const dbstring = `mongodb://192.168.99.100:${process.env.DBPORT}/${process.env.DB} || 
+                  mongodb://localhost:${process.env.DBPORT}/${process.env.DB} `;
 
 // Connect to database
 const initialDbConnection = () => {
-  
+
   mongoose.connect(dbstring, { useNewUrlParser: true });
   mongoose.connection.once('open', () => {
     console.log('Database connection successful.');
@@ -12,23 +13,23 @@ const initialDbConnection = () => {
 };
 
 // DB conext class to seperate db interactions from graphql logic
-class DbContext{
+class DbContext {
 
-  constructor(name){
-     this.name = name ;
-  }
- 
-  addBook(){
-
+  constructor(name) {
+    this.name = name;
   }
 
-  getBook(){
+  addBook() {
 
   }
 
-  getBooks(){
-    
+  getBook() {
+
   }
- }
+
+  getBooks() {
+
+  }
+}
 
 module.exports = { initialDbConnection }
