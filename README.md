@@ -1,16 +1,16 @@
-# GraphQL API on MongoDB :boom:
+# Full Stack Playground Application :boom:
+
+This application consists of separated frontend, backend and database environments.
+All solution parts run in a dedicated Docker container and communicate via GraphQL API among each other on pre-defined ports.
 
 ![Diagram](./Diagram.jpg?raw=true 'Diagram')
 
+The use case itself is held simple for the time being. A Frontend application allows you to request certain kind of books and their corresponding authors. The purpose of this little side project was more of technical and innovativ nature instead of a strong use case. That may changes in the neara future.
+
 ### Prerequesits
 
-#### Node.js
-
 - Download and install [Node.js](http://nodejs.org)
-
-#### Docker
-
-- Download and install **Docker**
+- Download and install **Docker** and **Docker Compose**
 
 #### Setup a MongoDB Docker container
 
@@ -27,7 +27,7 @@ $ docker exec -it graphqlplaylistDB bash
 
 ```
 
-### Documentation 1.0
+### Documentation
 
 The following short documentation should explain the **simple architecture** used in this project.
 To achieve a clean (but not yet true) _seperation of concerns_ the application was layered.
