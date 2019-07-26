@@ -57,8 +57,10 @@ mutation{
 }
 ```
 
-#### App Layer
+#### Client Layer
 
-tbd.
+The frontend application is implemented with Angular 7 and the CSS framework **Materialize**. To allow smart interaction with the native GraphQL server the app uses an **Apollo Client** module. This abstracts a certain layer of complexity to interact with GraphQL.
+
+Unit and Integration tests have been implemented by using **Jasmine framework**.
 
 Enjoy!
