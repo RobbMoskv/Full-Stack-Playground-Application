@@ -1,5 +1,7 @@
 # Full Stack Playground Application :boom:
 
+### Introduction
+
 This application consists of separated frontend, backend and database environments.
 All solution parts run in a dedicated **Docker** container and communicate via **GraphQL** API among each other on pre-defined ports.
 During development phase and out of interest I use a MongoDB Docker image. Don't do that in production mode.
@@ -24,7 +26,7 @@ To achieve a clean (but not yet true) _seperation of concerns_ the application w
 
 The database layer contains the **Object-Document-Mapping**. For each MongoDB collection a corresponding module exists.
 
-#### Setup a MongoDB Docker container
+##### Setup a MongoDB Docker container
 
 Choose the latest mongo image from Docker Hub, map the ports and run a container.
 
@@ -58,3 +60,5 @@ mutation{
 #### App Layer
 
 tbd.
+
+Enjoy!
