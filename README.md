@@ -24,11 +24,8 @@ To achieve a clean (but not yet true) _seperation of concerns_ the application w
 
 #### Database Layer
 
-The database layer contains the **Object-Document-Mapping**. For each MongoDB collection a corresponding module exists.
-
-##### Setup a MongoDB Docker container
-
-Choose the latest mongo image from Docker Hub, map the ports and run a container.
+The database layer makes use of an existing Docker image.
+To set this up choose the latest mongo image from Docker Hub, map the ports and run a container.
 
 ```bash
 # Run docker container
@@ -43,8 +40,8 @@ $ docker exec -it graphqlplaylistDB bash
 
 #### Graphql Layer
 
-A **single GraphQL endpoint** provides the one and only interaction point to the application by allowing
-**data consumption** as well as **defined mutations** possibilities.
+The layer contains the **Object-Document-Mapping** meaning for each MongoDB collection a corresponding object module exists in Node.
+A **single GraphQL endpoint** provides the one and only interaction point to the application by allowing **data consumption** as well as **defined mutations** possibilities.
 
 How to add objects to a MongoDB collection?
 
