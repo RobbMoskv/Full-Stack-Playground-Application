@@ -41,7 +41,7 @@ $ docker exec -it graphqlplaylistDB bash
 #### Graphql Layer
 
 The layer contains the **Object-Document-Mapping** meaning for each MongoDB collection a corresponding object module exists in Node.
-A **single GraphQL endpoint** provides the one and only interaction point to the application by allowing **data consumption** as well as **defined mutations** possibilities.
+A **single GraphQL endpoint** provides the one and only interaction point to the application by allowing **data consumption** as well as **defined mutation** possibilities.
 
 How to add objects to a MongoDB collection?
 
