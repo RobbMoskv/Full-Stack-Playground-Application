@@ -13,9 +13,16 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthorListComponent } from './components/author-list/author-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, BookListComponent, NavBarComponent, AuthorListComponent],
+  declarations: [
+    AppComponent,
+    BookListComponent,
+    NavBarComponent,
+    AuthorListComponent,
+    HomeComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +38,7 @@ import { AuthorListComponent } from './components/author-list/author-list.compon
           cache: new InMemoryCache(),
           // connect client to an external GraphQL Server
           link: httpLink.create({
-            uri: 'http://localhost:4000/graphql'
+            uri: 'http://192.168.99.100:8080/graphql'
           })
         };
       },
