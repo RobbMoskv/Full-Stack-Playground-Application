@@ -22,9 +22,9 @@ Before you consider to clone make sure you have to following installed:
 The following short documentation should explain the **simple architecture** used in this project.
 To achieve a clean (but not yet true) _seperation of concerns_ the application was layered.
 
-#### Database Layer
+#### Database
 
-The database layer makes use of an existing Docker image.
+The database makes use of the official MongoDB Docker image.
 To set this up choose the latest mongo image from Docker Hub, map the ports and run a container.
 
 ```bash
