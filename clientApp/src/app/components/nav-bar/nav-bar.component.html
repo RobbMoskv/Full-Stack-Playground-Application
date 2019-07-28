@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <div class="nav-wrapper">
     <a href="#" class="brand-logo right">Logo</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -6,4 +6,22 @@
       <li><a [routerLink]="['authors']">Authors</a></li>
     </ul>
   </div>
-</nav>
+</nav> -->
+
+<div class="navbar-fixed">
+  <nav class="teal">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Bookville</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a [routerLink]="['']">Home</a></li>
+          <li><a [routerLink]="['books']">Books</a></li>
+          <li><a [routerLink]="['authors']">Authors</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
