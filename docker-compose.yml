@@ -1,8 +1,7 @@
 version: '3'
 services:
   # Database container
-  database:
-    build: ./database
+  db:
     image: mongo
     ports:
       - '27017:27017'
@@ -12,6 +11,6 @@ services:
     build: ./graphql
     image: robbmoskv/graphqlserver
     ports:
-      - '8080:4000'
+      - '8080:8080'
     container_name: graphqlserver
   # Frontend container

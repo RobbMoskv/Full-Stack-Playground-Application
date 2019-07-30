@@ -1,14 +1,14 @@
 // Import
 const mongoose = require('mongoose');
-const dbstring = `mongodb://192.168.99.100:${process.env.DBPORT}/${process.env.DB} || 
-                  mongodb://localhost:${process.env.DBPORT}/${process.env.DB} `;
+const dbstring = `mongodb://db:${process.env.DBPORT}/${process.env.DB}`;
+// const dbstring = `mongodb://127.0.0.1:27017/graphqlplaylistDB`;
 
 // Connect to database
 const initialDbConnection = () => {
 
   mongoose.connect(dbstring, { useNewUrlParser: true });
   mongoose.connection.once('open', () => {
-    console.log('Database connection successful.');
+    console.log(`Database '${process.env.DB}' connection successful on port: ${process.env.DBPORT}`);
   });
 };
 

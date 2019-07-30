@@ -25,7 +25,7 @@ app.use('/graphql', graphqlHTTP({
 }));
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port: ${PORT}...`);
+  console.log(`GraphQL server is listening on port: ${PORT}...`);
 });
 
 // Create a single endpoint as route
