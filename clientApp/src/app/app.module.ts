@@ -38,7 +38,7 @@ import { HomeComponent } from './components/home/home.component';
           cache: new InMemoryCache(),
           // connect client to an external GraphQL Server
           link: httpLink.create({
-            uri: 'http://192.168.99.100:8080/graphql'
+            uri: 'http://localhost:8080/graphql'
           })
         };
       },
