@@ -7,10 +7,10 @@ services:
       - '27017:27017'
     container_name: mongdb
   # Backend container
-  graphql:
-    build: ./graphql
-    image: robbmoskv/graphqlserver
-    ports:
-      - '8080:8080'
-    container_name: graphqlserver
+  # graphql:
+  #   build: ./graphql
+  #   image: robbmoskv/graphqlserver
+  #   ports:
+  #     - '8080:8080'
+  #   container_name: graphqlserver
   # Frontend container
