@@ -26,7 +26,7 @@ const BookType = new GraphQLObjectType({
     }),
 });
 
-// // Book object type on the graph
+// Book object type on the graph
 const AuthorType = new GraphQLObjectType({
     name: 'Author',
     fields: () => ({
