@@ -12,11 +12,7 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 // Connect to database
-let dbconnected = false;
-if(dbconnected){
-  console.log('Connector')
-  dbconnected = DbConnector.initialDbConnection();
-}
+DbConnector.initialDbConnection();
 
 // Enable Cross-origin resource sharing (CORS)
 app.use(cors());
@@ -32,9 +28,6 @@ app.listen(PORT, () => {
   console.log(`GraphQL server is listening on port: ${PORT}...`);
 });
 
-// Initiate database setup
-if(dbconnected){
-  DbConnector.initialDbSetup();
-}
 
-// Create a single endpoint as route
+// Initiate database setup
+DbConnector.initialDbSetup();
