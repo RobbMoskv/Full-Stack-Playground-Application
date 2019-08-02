@@ -1,4 +1,4 @@
-# Full Stack Playground Application :boom:
+# Full Stack Bookville Application :boom:
 
 ### Introduction
 
