@@ -22,29 +22,31 @@ const initialDbConnection = () => {
 };
 
 const initialDbSetup = () => {
+  try {
+    mongoose.connection.once('open', () => {
+      const result = mongoose.connection.db.dropDatabase();
+      // Initialize database setup from scratch in case data does not exist
+      let entities = 0;
 
-  mongoose.connection.once('open', () => {
-    const result = mongoose.connection.db.dropDatabase();
-    // Initialize database setup from scratch in case data does not exist
-    let entities = 0;
-
-    // for each author in database
-    for (let i = 0; i < data.authors.length; i++) {
-      Author(data.authors[i]).save()
-        .then(result => {
-          addBookswithAuthorId(result._id);
-        })
-        .catch(err => errorHandler(err));
-      entities++;
-    }
-    console.log(`Initial database was successfull: ${entities} entities have been added.`);
-    return true;
-  });
+      // for each author in database
+      for (let i = 0; i < data.authors.length; i++) {
+        Author(data.authors[i]).save()
+          .then(result => {
+            addBookswithAuthorId(result._id);
+          })
+          .catch(err => errorHandler(err));
+        entities++;
+      }
+      console.log(`Initial database was successfull: ${entities} entities have been added.`);
+      return true;
+    });
+  } catch (error) {
+    errorHandler(error);
+  }
 }
 
-// Add books to db
+// Enrich book object with author id's
 function addBookswithAuthorId(authorId) {
-  // Enrich book object with author id's
   for (let i = 0; i < 2; i++) {
     data.books[0].authorid = authorId;
     Book(data.books[0]).save();
