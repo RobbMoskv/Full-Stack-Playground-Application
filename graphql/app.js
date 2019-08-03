@@ -12,22 +12,23 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 // Connect to database
-DbConnector.initialDbConnection();
+let dbconnected = false;
 
-// Enable Cross-origin resource sharing (CORS)
-app.use(cors());
+if (DbConnector.initialDbConnection()) {
+  // Enable Cross-origin resource sharing (CORS)
+  app.use(cors());
 
-// Use graphql server as middleware
-app.use('/graphql', graphqlHTTP({
-  // Option object
-  schema: schema,
-  graphiql: true
-}));
+  // Use graphql server as middleware
+  app.use('/graphql', graphqlHTTP({
+    // Option object
+    schema: schema,
+    graphiql: true
+  }));
 
-app.listen(PORT, () => {
-  console.log(`GraphQL server is listening on port: ${PORT}...`);
-});
+  app.listen(PORT, () => {
+    console.log(`GraphQL server is listening on port: ${PORT}...`);
+  });
 
-
-// Initiate database setup
-DbConnector.initialDbSetup();
+  // Initiate database setup
+  // DbConnector.initialDbSetup();
+}
