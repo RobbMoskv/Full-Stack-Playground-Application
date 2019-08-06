@@ -15,6 +15,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthorListComponent } from './components/author-list/author-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { BookStoreService } from './services/book-store.service';
+import { BookListItemComponent } from './components/book-list-item/book-list-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BookStoreService } from './services/book-store.service';
     BookListComponent,
     NavBarComponent,
     AuthorListComponent,
-    HomeComponent
+    HomeComponent,
+    BookListItemComponent
   ],
   imports: [
     BrowserModule,
