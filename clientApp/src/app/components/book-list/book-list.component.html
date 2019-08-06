@@ -2,14 +2,40 @@
   <h4>List of Books</h4>
 
   <div *ngIf="loading">
-    Loading...
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <div *ngIf="error">
     Error :(
   </div>
 
   <div *ngIf="books">
-    <table>
+    <ul class="collection" *ngFor="let book of books">
+      <li class="collection-item avatar">
+        <i class="material-icons circle">folder</i>
+        <span class="title">{{ book.name }}</span>
+        <p>
+          Genre: {{ book.genre }} <br />
+          ISBN: {{ book.id }}
+        </p>
+        <!-- <a href="#!" class="secondary-content">
+          <i class="material-icons">grade</i>
+        </a> -->
+      </li>
+    </ul>
+
+    <!-- <table>
       <thead>
         <tr>
           <th>Name</th>
@@ -22,6 +48,6 @@
           <td>{{ book.genre }}</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </div>
