@@ -42,6 +42,7 @@ export class BookStoreService implements OnDestroy {
         query: gql`
           query {
             books {
+              id
               name
               genre
             }
@@ -49,10 +50,10 @@ export class BookStoreService implements OnDestroy {
         `
       })
       .valueChanges.subscribe(({ data, loading }) => {
-        // tslint:disable-next-line:no-debugger
         this.loading = loading;
         this.books = data.books;
       });
+
     return this.books;
   }
 
