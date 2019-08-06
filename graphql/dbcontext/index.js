@@ -24,10 +24,7 @@ const initialDbConnection = () => {
 const initialDbSetup = () => {
   try {
     mongoose.connection.once('open', () => {
-      const result = mongoose.connection.db.dropDatabase();
-      // Initialize database setup from scratch in case data does not exist
-      let entities = 0;
-
+      mongoose.connection.db.dropDatabase();
       // for each author in database
       for (let i = 0; i < data.authors.length; i++) {
         Author(data.authors[i]).save()
@@ -35,9 +32,8 @@ const initialDbSetup = () => {
             addBookswithAuthorId(result._id);
           })
           .catch(err => errorHandler(err));
-        entities++;
       }
-      console.log(`Initial database was successfull: ${entities} entities have been added.`);
+      console.log(`Initial database was successfull.`);
       return true;
     });
   } catch (error) {
