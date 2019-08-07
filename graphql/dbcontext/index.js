@@ -1,3 +1,5 @@
+const debug = require('debug')('index');
+
 // Import
 const data = require('./data/datastore');
 const { Book, Author } = require('./models');
@@ -11,7 +13,7 @@ const initialDbConnection = () => {
   try {
     mongoose.connect(dbstring, { useNewUrlParser: true });
     mongoose.connection.once('open', () => {
-      console.log(`Database connection was successfull: ${dbstring}`);
+      debug(`Database connection was successfull: ${dbstring}`);
     });
     return true;
   }
@@ -33,7 +35,7 @@ const initialDbSetup = () => {
           })
           .catch(err => errorHandler(err));
       }
-      console.log(`Initial database was successfull.`);
+      debug(`Initial database was successfull.`);
       return true;
     });
   } catch (error) {
@@ -51,7 +53,7 @@ function addBookswithAuthorId(authorId) {
 }
 
 function errorHandler(err) {
-  console.log(`Hi Server, this is your error: ${err}`);
+  debug(`Hi Server, this is your error: ${err}`);
 }
 
 module.exports = { initialDbConnection, initialDbSetup }
