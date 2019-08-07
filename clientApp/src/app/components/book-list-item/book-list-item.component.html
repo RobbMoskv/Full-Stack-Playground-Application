@@ -1,3 +1,13 @@
-<p>
-  book-list-item works!
-</p>
+<ul class="collection" *ngFor="let book of books">
+  <li class="collection-item avatar">
+    <i class="material-icons circle">folder</i>
+    <span class="title">{{ book.name }}</span>
+    <p>
+      Genre: {{ book.genre }} <br />
+      ISBN: {{ book.id }}
+    </p>
+    <!-- <a href="#!" class="secondary-content">
+      <i class="material-icons">grade</i>
+    </a> -->
+  </li>
+</ul>
