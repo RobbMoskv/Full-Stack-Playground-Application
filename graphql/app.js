@@ -3,8 +3,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
+const chalk = require('chalk');
+const debug = require('debug')('app');
+const morgan = require('morgan');
+
 const schema = require('./schema/schema');
 const DbConnector = require('./dbcontext/');
 
@@ -12,11 +16,11 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 // Connect to database
-let dbconnected = false;
-
 if (DbConnector.initialDbConnection()) {
   // Enable Cross-origin resource sharing (CORS)
   app.use(cors());
+
+  app.use(morgan('tiny'));
 
   // Use graphql server as middleware
   app.use('/graphql', graphqlHTTP({
@@ -26,9 +30,14 @@ if (DbConnector.initialDbConnection()) {
   }));
 
   app.listen(PORT, () => {
-    console.log(`GraphQL server is listening on port: ${PORT}...`);
+    debug(`GraphQL server is listening on port: ${chalk.green(PORT)}...`);
   });
 
   // Initiate database setup
   // DbConnector.initialDbSetup();
 }
+else {
+  debug(chalk.red('Ups. Database connection could not been established.'));
+}
+
+
